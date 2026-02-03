@@ -2,171 +2,265 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Free Scientific Minds</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Scientific Minds</title>
 
   <style>
-    :root {
-      --bg-dark: #0f172a;
-      --bg-light: #111827;
-      --accent: #2563eb;
-      --text-main: #e5e7eb;
-      --text-muted: #9ca3af;
-    }
-
     * {
       box-sizing: border-box;
-      font-family: "Segoe UI", system-ui, sans-serif;
+      font-family: "Helvetica Neue", Arial, sans-serif;
     }
 
     body {
       margin: 0;
-      background: linear-gradient(to bottom, var(--bg-dark), var(--bg-light));
-      color: var(--text-main);
+      color: #1a1a1a;
+      background-color: #ffffff;
+    }
+
+    /* NAVBAR */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 6%;
+      border-bottom: 1px solid #e5e5e5;
+      background: #fff;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #0b1f2a;
+    }
+
+    .testimonials-btn {
+      padding: 10px 22px;
+      border: 2px solid #0077b6;
+      border-radius: 4px;
+      font-weight: 600;
+      color: #0077b6;
+      text-decoration: none;
+    }
+
+    .testimonials-btn:hover {
+      background: #0077b6;
+      color: white;
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      height: 70vh;
+      background-image: url("https://images.unsplash.com/photo-1581090700227-1e37b190418e");
+      background-size: cover;
+      background-position: center;
+      color: white;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 650px;
+      padding: 120px 6%;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
       line-height: 1.6;
     }
 
-    header {
-      min-height: 100vh;
-      background:
-        linear-gradient(rgba(15,23,42,0.85), rgba(15,23,42,0.9)),
-        url("https://images.unsplash.com/photo-1581092919534-09a3c7e2e7f8?auto=format&fit=crop&w=1600&q=80");
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    /* SLOGAN */
+    .slogan {
       text-align: center;
-      padding: 2rem;
+      padding: 80px 6%;
     }
 
-    header h1 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+    .slogan h2 {
+      font-size: 2.4rem;
+      font-weight: 300;
+      color: #6a2ca0;
+      letter-spacing: 1px;
     }
 
-    header p {
-      max-width: 720px;
-      margin: 1rem auto 2rem;
-      color: var(--text-muted);
-      font-size: 1.1rem;
+    /* STATS */
+    .stats {
+      background: #f7f7f7;
+      padding: 70px 6%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      text-align: center;
     }
 
-    .cta {
-      display: inline-block;
-      padding: 1rem 2.5rem;
-      background: var(--accent);
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      border-radius: 4px;
-      transition: transform 0.2s, box-shadow 0.2s;
+    .stat h3 {
+      font-size: 2.2rem;
+      margin-bottom: 6px;
+      color: #0b1f2a;
     }
 
-    .cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(37,99,235,0.4);
+    .stat p {
+      margin: 0;
+      font-size: 0.95rem;
     }
 
+    /* CONTENT */
     section {
-      padding: 4rem 2rem;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    h2 {
-      margin-bottom: 1rem;
+      padding: 70px 6%;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 40px;
     }
 
     .card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      padding: 2rem;
+      background: #fff;
+      padding: 34px;
       border-radius: 6px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.08);
     }
 
-    .card img {
-      width: 100%;
-      border-radius: 4px;
-      margin-bottom: 1rem;
+    .card h3 {
+      margin-top: 0;
+      color: #0b1f2a;
+    }
+
+    .metrics {
+      background: #eef4f8;
     }
 
     footer {
-      padding: 2rem;
-      text-align: center;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      border-top: 1px solid rgba(255,255,255,0.08);
+      background: #0b1f2a;
+      color: #cfd8dc;
+      padding: 40px 6%;
+      font-size: 0.85rem;
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <div>
-    <h1>Free Scientific Minds</h1>
-    <p>
-      Advancing science through collaboration, innovation, and a shared commitment
-      to improving quality of life for communities around the world.
-    </p>
-
-    <!-- Replace with your real YouTube link -->
-    <a class="cta" href="https://www.youtube.com/" target="_blank">
-      Client Testimonials
+  <nav>
+    <div class="logo">Free Scientific Minds</div>
+    <a
+      href="https://www.youtube.com"
+      target="_blank"
+      class="testimonials-btn"
+    >
+      Testimonials
     </a>
-  </div>
-</header>
+  </nav>
 
-<section>
-  <h2>Who We Are</h2>
-  <p>
-    Free Scientific Minds is a research-driven organization focused on developing
-    practical scientific solutions to real-world challenges. We work alongside
-    public and private partners to explore new technologies, refine existing systems,
-    and create meaningful, positive impact.
-  </p>
-</section>
-
-<section class="grid">
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=800&q=80" alt="">
-    <h3>Research & Development</h3>
-    <p>
-      Our multidisciplinary teams explore emerging technologies across engineering,
-      materials science, and applied research to deliver measurable results.
-    </p>
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Advancing Humanity Through Science</h1>
+      <p>
+        Free Scientific Minds is a research-driven organization focused on
+        long-term scientific advancement, educational initiatives, and the
+        development of future-ready systems that benefit society at scale.
+      </p>
+    </div>
   </div>
 
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" alt="">
-    <h3>Human-Focused Innovation</h3>
-    <p>
-      We prioritize usability, accessibility, and long-term value to ensure our
-      work benefits individuals and society as a whole.
-    </p>
+  <div class="slogan">
+    <h2>INTERACT<br>DISCOVER<br>LEARN</h2>
   </div>
 
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1581091870622-3a1f1a3b1a4f?auto=format&fit=crop&w=800&q=80" alt="">
-    <h3>Global Collaboration</h3>
-    <p>
-      By working with partners across industries and regions, we bring diverse
-      perspectives together to solve complex challenges.
-    </p>
+  <div class="stats">
+    <div class="stat">
+      <h3>173</h3>
+      <p>active research programs</p>
+    </div>
+    <div class="stat">
+      <h3>98.7%</h3>
+      <p>project continuation rate</p>
+    </div>
+    <div class="stat">
+      <h3>3640+</h3>
+      <p>published findings & initiatives</p>
+    </div>
+    <div class="stat">
+      <h3>24/7</h3>
+      <p>operational research cycles</p>
+    </div>
   </div>
-</section>
 
-<footer>
-  © Free Scientific Minds. Committed to responsible research and innovation.
-</footer>
+  <section>
+    <div class="grid">
+      <div class="card">
+        <h3>Our Mission</h3>
+        <p>
+          To remove limitations on human potential through responsible scientific
+          exploration, interdisciplinary collaboration, and outcome-focused research.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Our Approach</h3>
+        <p>
+          We combine theoretical science, applied development, and iterative testing
+          methodologies to ensure ideas progress efficiently from concept to impact.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Our Philosophy</h3>
+        <p>
+          Progress is achieved through persistence, precision, and a willingness
+          to explore questions others may not yet be ready to ask.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="metrics">
+    <div class="grid">
+      <div class="card">
+        <h3>Operational Metrics</h3>
+        <p>
+          Average project lifecycle: 6.2 years<br>
+          Concurrent initiatives per division: 14<br>
+          Cross-disciplinary integration score: 91%
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Global Engagement</h3>
+        <p>
+          Active collaborations across 42 regions<br>
+          Multilingual research documentation<br>
+          Distributed infrastructure and resources
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Long-Term Outcomes</h3>
+        <p>
+          Systems designed for decades of scalability<br>
+          Sustainable research pipelines<br>
+          Knowledge preservation initiatives
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2042 Free Scientific Minds. All rights reserved.<br>
+    An independent scientific research and development organization.
+  </footer>
 
 </body>
 </html>
