@@ -17,7 +17,20 @@
       background-color: #ffffff;
     }
 
-    /* NAVBAR */
+    /* ANIMATIONS */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     nav {
       display: flex;
       justify-content: space-between;
@@ -25,6 +38,9 @@
       padding: 14px 6%;
       border-bottom: 1px solid #e5e5e5;
       background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
     .logo {
@@ -40,14 +56,15 @@
       font-weight: 600;
       color: #0077b6;
       text-decoration: none;
+      transition: all 0.3s ease;
     }
 
     .testimonials-btn:hover {
       background: #0077b6;
       color: white;
+      transform: scale(1.05);
     }
 
-    /* HERO */
     .hero {
       position: relative;
       height: 70vh;
@@ -81,7 +98,6 @@
       line-height: 1.6;
     }
 
-    /* SLOGAN */
     .slogan {
       text-align: center;
       padding: 80px 6%;
@@ -94,7 +110,6 @@
       letter-spacing: 1px;
     }
 
-    /* STATS */
     .stats {
       background: #f7f7f7;
       padding: 70px 6%;
@@ -110,36 +125,69 @@
       color: #0b1f2a;
     }
 
-    .stat p {
-      margin: 0;
-      font-size: 0.95rem;
-    }
-
-    /* CONTENT */
     section {
       padding: 70px 6%;
     }
 
-    .grid {
+    .image-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      padding: 60px 6%;
+    }
+
+    .image-grid img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 6px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      transition: transform 0.4s ease;
+    }
+
+    .image-grid img:hover {
+      transform: scale(1.03);
+    }
+
+    /* FAKE CHARTS */
+    .charts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 40px;
     }
 
-    .card {
+    .chart {
       background: #fff;
-      padding: 34px;
+      padding: 30px;
       border-radius: 6px;
       box-shadow: 0 8px 22px rgba(0,0,0,0.08);
     }
 
-    .card h3 {
-      margin-top: 0;
-      color: #0b1f2a;
+    .bar {
+      height: 10px;
+      background: linear-gradient(90deg, #0077b6, #6a2ca0);
+      margin: 14px 0;
+      animation: growBar 2s ease forwards;
+      width: 0;
     }
 
-    .metrics {
-      background: #eef4f8;
+    @keyframes growBar {
+      to { width: 100%; }
+    }
+
+    /* TIMELINE */
+    .timeline {
+      border-left: 3px solid #0077b6;
+      padding-left: 30px;
+    }
+
+    .event {
+      margin-bottom: 40px;
+    }
+
+    .event h4 {
+      margin: 0;
+      color: #0b1f2a;
     }
 
     footer {
@@ -156,7 +204,7 @@
   <nav>
     <div class="logo">Free Scientific Minds</div>
     <a
-      href="https://www.youtube.com"
+      href="https://youtube.com/shorts/p4a6vVuNC1I?feature=share"
       target="_blank"
       class="testimonials-btn"
     >
@@ -165,94 +213,71 @@
   </nav>
 
   <div class="hero">
-    <div class="hero-content">
+    <div class="hero-content fade-in">
       <h1>Advancing Humanity Through Science</h1>
       <p>
-        Free Scientific Minds is a research-driven organization focused on
-        long-term scientific advancement, educational initiatives, and the
-        development of future-ready systems that benefit society at scale.
+        A research-driven organization focused on scalable innovation,
+        long-term systems, and interdisciplinary scientific progress.
       </p>
     </div>
   </div>
 
-  <div class="slogan">
+  <div class="slogan fade-in">
     <h2>INTERACT<br>DISCOVER<br>LEARN</h2>
   </div>
 
-  <div class="stats">
-    <div class="stat">
-      <h3>173</h3>
-      <p>active research programs</p>
-    </div>
-    <div class="stat">
-      <h3>98.7%</h3>
-      <p>project continuation rate</p>
-    </div>
-    <div class="stat">
-      <h3>3640+</h3>
-      <p>published findings & initiatives</p>
-    </div>
-    <div class="stat">
-      <h3>24/7</h3>
-      <p>operational research cycles</p>
-    </div>
+  <div class="stats fade-in">
+    <div class="stat"><h3>173</h3><p>active research programs</p></div>
+    <div class="stat"><h3>98.7%</h3><p>project continuity index</p></div>
+    <div class="stat"><h3>3640+</h3><p>validated initiatives</p></div>
+    <div class="stat"><h3>24/7</h3><p>operational cycles</p></div>
   </div>
 
-  <section>
-    <div class="grid">
-      <div class="card">
-        <h3>Our Mission</h3>
-        <p>
-          To remove limitations on human potential through responsible scientific
-          exploration, interdisciplinary collaboration, and outcome-focused research.
-        </p>
-      </div>
+  <div class="image-grid fade-in">
+    <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b">
+    <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d">
+    <img src="https://images.unsplash.com/photo-1581092334394-8c7d1eebc4c9">
+  </div>
 
-      <div class="card">
-        <h3>Our Approach</h3>
-        <p>
-          We combine theoretical science, applied development, and iterative testing
-          methodologies to ensure ideas progress efficiently from concept to impact.
-        </p>
+  <section class="fade-in">
+    <h2>Performance Visualization</h2>
+    <div class="charts">
+      <div class="chart">
+        <p>System Alignment Index</p>
+        <div class="bar"></div>
+        <div class="bar"></div>
       </div>
-
-      <div class="card">
-        <h3>Our Philosophy</h3>
-        <p>
-          Progress is achieved through persistence, precision, and a willingness
-          to explore questions others may not yet be ready to ask.
-        </p>
+      <div class="chart">
+        <p>Long-Term Outcome Projection</p>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <div class="chart">
+        <p>Cross-Domain Integration</p>
+        <div class="bar"></div>
+        <div class="bar"></div>
       </div>
     </div>
   </section>
 
-  <section class="metrics">
-    <div class="grid">
-      <div class="card">
-        <h3>Operational Metrics</h3>
-        <p>
-          Average project lifecycle: 6.2 years<br>
-          Concurrent initiatives per division: 14<br>
-          Cross-disciplinary integration score: 91%
-        </p>
+  <section class="fade-in">
+    <h2>Strategic Evolution</h2>
+    <div class="timeline">
+      <div class="event">
+        <h4>Phase I — Conceptual Alignment</h4>
+        <p>Establishing foundational research frameworks and exploratory systems.</p>
       </div>
-
-      <div class="card">
-        <h3>Global Engagement</h3>
-        <p>
-          Active collaborations across 42 regions<br>
-          Multilingual research documentation<br>
-          Distributed infrastructure and resources
-        </p>
+      <div class="event">
+        <h4>Phase II — Applied Expansion</h4>
+        <p>Scaling interdisciplinary initiatives across operational domains.</p>
       </div>
-
-      <div class="card">
-        <h3>Long-Term Outcomes</h3>
-        <p>
-          Systems designed for decades of scalability<br>
-          Sustainable research pipelines<br>
-          Knowledge preservation initiatives
-        </p>
+      <div class="event">
+        <h4>Phase III — Outcome Optimization</h4>
+        <p>Refining methodologies to maximize long-term global impact.</p>
+      </div>
+      <div class="event">
+        <h4>Phase IV — Sustained Continuity</h4>
+        <p>Ensuring enduring system resilience and knowledge preservation.</p>
       </div>
     </div>
   </section>
